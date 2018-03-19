@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="CrossBrowserTestExample">
+    <test name="FirefoxTest">
+        <parameter name="browser" value="firefox"/>
+        <!--<groups>-->
+            <!--<run>-->
+                <!--<include name="sign out"/>-->
+                <!--<include name="login"/>-->
+            <!--</run>-->
+        <!--</groups>-->
+        <packages>
+            <package name="com.telesens.*"/>
+        </packages>
+    </test>
+    <test name="ChromeTest">
+        <parameter name="browser" value="chrome"/>
+        <packages>
+            <package name="com.telesens.*"/>
+        </packages>
+    </test>
+</suite>
