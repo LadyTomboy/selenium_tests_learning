@@ -6,18 +6,18 @@
         <parameter name="browser" value="firefox"/>
         <!--<groups>-->
             <!--<run>-->
-                <!--<include name="sign out"/>-->
-                <!--<include name="login"/>-->
+                <!--<include name="25"/>-->
+                <!--&lt;!&ndash;<include name="login"/>&ndash;&gt;-->
             <!--</run>-->
         <!--</groups>-->
         <packages>
-            <package name="com.telesens.*"/>
+            <package name="com.telesens.test.*"/>
         </packages>
     </test>
-    <test name="ChromeTest">
-        <parameter name="browser" value="chrome"/>
-        <packages>
-            <package name="com.telesens.*"/>
-        </packages>
-    </test>
+    <!--<test name="ChromeTest">-->
+        <!--<parameter name="browser" value="chrome"/>-->
+        <!--<packages>-->
+            <!--<package name="com.telesens.*"/>-->
+        <!--</packages>-->
+    <!--</test>-->
 </suite>

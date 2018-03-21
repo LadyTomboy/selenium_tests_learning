@@ -1,54 +1,51 @@
-package com.telesens.test.page;
+package com.telesens.test.appmanager.page;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class BasePage {
-    protected WebDriver driver;
-
-    @FindBy(css = "#block_top_menu > ul > li:nth-child(1) > a")
-    protected WebElement womenCategoryLink;
-
-    @FindBy(css = "#block_top_menu > ul > li:nth-child(2) > a")
-    protected WebElement dressesCategoryLink;
-
-    @FindBy(css = "#block_top_menu > ul > li:nth-child(3) > a")
-    protected WebElement tshirtsCategoryLink;
-
-    @FindBy(css = "#header > div.nav > div > div > nav > div:nth-child(1) > a")
-    protected WebElement accountLink;
+public class HomePage extends BasePage {
 
     @FindBy(linkText = "Sign in")
     private WebElement signInLink;
+    @FindBy(css = "#block_top_menu > ul > li:nth-child(1) > a")
+    private WebElement womenCategoryLink;
+    @FindBy(css = "#block_top_menu > ul > li:nth-child(2) > a")
+    private WebElement dressesCategoryLink;
+    @FindBy(css = "#block_top_menu > ul > li:nth-child(3) > a")
+    private WebElement tshirtsCategoryLink;
+    @FindBy(css = "#header > div.nav > div > div > nav > div:nth-child(1) > a")
+    private WebElement accountLink;
 
-    public BasePage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        this.driver = driver;
+    public HomePage(WebDriver driver) {
+        super(driver);
     }
 
-    public LoginPage goToLoginPage() {
+    public LoginPage clickBySignInButton() {
         signInLink.click();
         return new LoginPage(driver);
     }
 
-    public WomenPage goToWomenPage(){
+    public WomenPage clickByWomenCategoryButton() {
         womenCategoryLink.click();
         return new WomenPage(driver);
     }
 
-    public DressesPage goToDressesPage(){
+    public DressesPage clickByDressesCategoryButton() {
         dressesCategoryLink.click();
         return new DressesPage(driver);
     }
 
-    public AccountPage goToAccountPage(){
+
+////////////////////////////////check
+
+
+    public AccountPage goToAccountPage() {
         accountLink.click();
         return new AccountPage(driver);
     }
 
-    public String getSigninText(){
+    public String getSigninText() {
         return signInLink.getText();
     }
 }

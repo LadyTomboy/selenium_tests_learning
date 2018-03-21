@@ -1,4 +1,4 @@
-package com.telesens.test.page;
+package com.telesens.test.appmanager.page;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,8 +8,12 @@ public class AccountPage extends BasePage {
 
     @FindBy(linkText = "Sign out")
     private WebElement signOutLink;
-    @FindBy(css = "div.col-sm-6:nth-child(1) > ul:nth-child(1) > li:nth-child(3) > a:nth-child(1)")
-    private WebElement myAddressesButton;
+
+    @FindBy(css = "#header > div.nav > div > div > nav > div:nth-child(1) > a")
+    private WebElement accountLink;
+
+    @FindBy(css = "#center_column > div > div:nth-child(1) > ul > li:nth-child(3) > a")
+    private WebElement myAddressButton;
 
     public AccountPage(WebDriver driver) {
         super(driver);
@@ -19,20 +23,13 @@ public class AccountPage extends BasePage {
         return signOutLink.getText();
     }
 
-    public BasePage signOut(){
-       signOutLink.click();
-       return new BasePage(driver);
-    }
-
-    public MyAddressPage goToMyAddressesPage(){
-        myAddressesButton.click();
-        return new MyAddressPage(driver);
-    }
-
-    public AccountPage goToAccauntPage(){
+    public AccountPage clickByAccountLink() {
         accountLink.click();
         return new AccountPage(driver);
     }
 
-
+    public MyAddressPage clickByMyAddress() {
+        myAddressButton.click();
+        return new MyAddressPage(driver);
+    }
 }

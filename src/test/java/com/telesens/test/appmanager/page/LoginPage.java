@@ -1,4 +1,4 @@
-package com.telesens.test.page;
+package com.telesens.test.appmanager.page;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -6,11 +6,11 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
-    @FindBy(id="email")
+    @FindBy(id = "email")
     private WebElement loginField;
-    @FindBy(id="passwd")
+    @FindBy(id = "passwd")
     private WebElement passwField;
-    @FindBy(id="SubmitLogin")
+    @FindBy(id = "SubmitLogin")
     private WebElement signInButton;
     @FindBy(css = "#center_column > div.alert.alert-danger > ol > li")
     private WebElement signInErrorMessage;
@@ -20,14 +20,12 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage inputLogin(String login) {
-        loginField.clear();
-        loginField.sendKeys(login);
+        type(loginField, login);
         return this;
     }
 
     public LoginPage inputPassword(String passw) {
-        passwField.clear();
-        passwField.sendKeys(passw);
+        type(passwField, passw);
         return this;
     }
 
@@ -36,7 +34,7 @@ public class LoginPage extends BasePage {
         return new AccountPage(driver);
     }
 
-    public LoginPage submitLoginWithInvalidCredentials () {
+    public LoginPage submitLoginWithInvalidCredentials() {
         signInButton.click();
         return new LoginPage(driver);
     }

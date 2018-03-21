@@ -1,4 +1,4 @@
-package com.telesens.test.page;
+package com.telesens.test.appmanager.page;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,11 +9,13 @@ public class WomenPage extends BasePage {
     @FindBy(css = "#center_column > h1 > span.cat-name")
     private WebElement womenCategoryName;
 
-    public WomenPage(WebDriver driver){
+    public WomenPage(WebDriver driver) {
         super(driver);
     }
 
-    public String getWomenCategoryNameText(){
+    public String getWomenCategoryNameText() {
         return womenCategoryName.getText();
     }
+
+
 }
