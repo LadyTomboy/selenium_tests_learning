@@ -1,20 +1,20 @@
-package com.telesens.test.tests;
+package com.telesens.automationpractice.tests;
 
 import org.testng.annotations.Test;
 
 public class CategoryTest extends BaseTest{
 
-    @Test(enabled = false)
+    @Test (enabled = false)
     public void womenCategoryLinkTest(){
-        app.getCategoryHelper().goToWomenCategoryPage();
-        app.getCategoryHelper().checkWomenCategoryTitle("WOMEN ");
+        app.category().goToWomenCategoryPage();
+        app.category().checkWomenCategoryTitle("WOMEN ");
     }
 
-    @Test
+    @Test (enabled = false)
     public void DressesCategorySizeFilterTest(){
-        app.getCategoryHelper().goToDressesCategoryPage();
-        app.getCategoryHelper().selectSizeSProducts();
-        app.getCategoryHelper().checkFirstProductPrice("$26.00");
+        app.category().goToDressesCategoryPage();
+        app.category().selectSizeSProducts();
+        app.category().checkFirstProductPrice("$26.00");
 
     }
 

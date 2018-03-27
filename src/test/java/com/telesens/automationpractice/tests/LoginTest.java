@@ -1,29 +1,38 @@
-package com.telesens.test.tests;
+package com.telesens.automationpractice.tests;
 
 
-import com.telesens.test.appmanager.page.AccountPage;
-import com.telesens.test.appmanager.page.HomePage;
-import com.telesens.test.appmanager.page.LoginPage;
-import org.testng.Assert;
+import com.telesens.automationpractice.appmanager.model.LoginExcelData;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest{
-//
+
+    @Test (dataProvider = "excelLoginData")
+    public void LoginTest(String email, String pass, String errorMessage) {
+        app.session().loginWithInvalidData(email, pass);
+        app.session().checkErrorMessage(errorMessage);
+    }
+
+    @DataProvider(name = "excelLoginData")
+    public Object[][] provideData() {
+        LoginExcelData loginExcelData = new LoginExcelData();
+        return loginExcelData.getCredentials();
+      }
+
 //    //TODO
-//    @Test (groups = {"login", "positive"})
+//    @Test (dataProvider = "excel Name")
 //    public void testLogin() {
 //        driver.get(baseUrl + "/index.php");
 //        String signOutText =
 //                new HomePage(driver)
 //                .goToLoginPage()
-//                .inputLogin("1@i.ua")
+//                .inputEmail("1@i.ua")
 //                .inputPassword("123456")
 //                .submitLogin()
 //                .getSignOutText();
 //
 ////        LoginPage loginPage = homePage.goToLoginPage();
-////        loginPage.inputLogin("oleg.kh81@gmail.com");
+////        loginPage.inputEmail("oleg.kh81@gmail.com");
 ////        loginPage.inputPassword("vlrevlor");
 ////        AccountPage accountPage = loginPage.submitLogin();
 ////        String signOutText = accountPage.getSignOutText();
@@ -38,7 +47,7 @@ public class LoginTest extends BaseTest{
 //        String errorMessageText =
 //                new HomePage(driver)
 //                .goToLoginPage()
-//                .inputLogin(email)
+//                .inputEmail(email)
 //                .inputPassword(pass)
 //                .submitLoginWithInvalidCredentials()
 //                .getSignInErrorMessageText();

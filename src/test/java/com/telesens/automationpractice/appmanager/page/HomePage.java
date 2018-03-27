@@ -1,4 +1,4 @@
-package com.telesens.test.appmanager.page;
+package com.telesens.automationpractice.appmanager.page;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,6 +16,7 @@ public class HomePage extends BasePage {
     private WebElement tshirtsCategoryLink;
     @FindBy(css = "#header > div.nav > div > div > nav > div:nth-child(1) > a")
     private WebElement accountLink;
+
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -35,6 +36,7 @@ public class HomePage extends BasePage {
         dressesCategoryLink.click();
         return new DressesPage(driver);
     }
+
 
 
 ////////////////////////////////check

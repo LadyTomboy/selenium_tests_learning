@@ -1,6 +1,6 @@
 // This file is deprecated
 
-package com.telesens.test.tests;
+package com.telesens.automationpractice.tests;
 
 
 import org.apache.logging.log4j.LogManager;

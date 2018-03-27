@@ -1,8 +1,8 @@
-package com.telesens.test.appmanager.helper;
+package com.telesens.automationpractice.appmanager.helper;
 
-import com.telesens.test.appmanager.page.DressesPage;
-import com.telesens.test.appmanager.page.HomePage;
-import com.telesens.test.appmanager.page.WomenPage;
+import com.telesens.automationpractice.appmanager.page.DressesPage;
+import com.telesens.automationpractice.appmanager.page.HomePage;
+import com.telesens.automationpractice.appmanager.page.WomenPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 

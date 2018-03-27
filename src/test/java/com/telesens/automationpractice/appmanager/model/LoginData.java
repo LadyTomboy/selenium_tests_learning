@@ -1,4 +1,4 @@
-package com.telesens.test.appmanager.model;
+package com.telesens.automationpractice.appmanager.model;
 
 public class LoginData {
     private final String email;

@@ -1,4 +1,4 @@
-package com.telesens.test.appmanager.page;
+package com.telesens.automationpractice.appmanager.page;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,13 +13,13 @@ public class LoginPage extends BasePage {
     @FindBy(id = "SubmitLogin")
     private WebElement signInButton;
     @FindBy(css = "#center_column > div.alert.alert-danger > ol > li")
-    private WebElement signInErrorMessage;
+    private WebElement errorMessage;
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
-    public LoginPage inputLogin(String login) {
+    public LoginPage inputEmail(String login) {
         type(loginField, login);
         return this;
     }
@@ -39,7 +39,13 @@ public class LoginPage extends BasePage {
         return new LoginPage(driver);
     }
 
-    public String getSignInErrorMessageText() {
-        return signInErrorMessage.getText();
+    public String getErrorMessageText() {
+        return errorMessage.getText();
+    }
+
+    public LoginPage inputLogin(String login) {
+        loginField.clear();
+        loginField.sendKeys(login);
+        return this;
     }
 }

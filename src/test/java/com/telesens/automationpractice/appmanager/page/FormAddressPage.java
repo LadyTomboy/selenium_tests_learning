@@ -1,4 +1,4 @@
-package com.telesens.test.appmanager.page;
+package com.telesens.automationpractice.appmanager.page;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,15 +15,19 @@ public class FormAddressPage extends BasePage {
     @FindBy(id = "city")
     private WebElement cityField;
     @FindBy(id = "id_state")
-    private WebElement stateDropdown;
+    private WebElement stateSelect;
     @FindBy(id = "postcode")
     private WebElement postcodeField;
-    @FindBy(id = "phone")
-    private WebElement phoneField;
-    @FindBy(id = "alias")
-    private WebElement addressTitleField;
-    @FindBy(id = "submitAddress")
+    @FindBy(id="id_country")
+    private WebElement countrySelect;
+    @FindBy(id="phone")
+    private WebElement homePhoneField;
+    @FindBy(id="phone_mobile")
+    private WebElement mobilePhoneField;
+    @FindBy(id="submitAddress")
     private WebElement saveButton;
+    @FindBy(id="alias")
+    private WebElement addressAlias;
 
     private String title;
     private long uniqueID = System.currentTimeMillis();
@@ -52,34 +56,39 @@ public class FormAddressPage extends BasePage {
         return new FormAddressPage(driver);
     }
 
-    public FormAddressPage selectState(String stateValue) {
-        selectByValue(stateDropdown, stateValue);
+    public FormAddressPage inputState(String state) {
+        selectByText(stateSelect, state);
         return new FormAddressPage(driver);
     }
 
-    public FormAddressPage inputPostcode(String zip) {
+    public FormAddressPage inputZipCode(String zip) {
         type(postcodeField, zip);
         return new FormAddressPage(driver);
     }
 
-    public FormAddressPage inputPhone(String phone) {
-        type(phoneField, phone);
+    public FormAddressPage inputCountry(String country) {
+        selectByText(countrySelect, country);
         return new FormAddressPage(driver);
     }
 
-    public FormAddressPage inputAddressTitle(String addressTitle) {
-        title = addressTitle + uniqueID;
-        type(addressTitleField, title);
+    public FormAddressPage inputHomePhone(String homePhone) {
+        type(homePhoneField, homePhone);
         return new FormAddressPage(driver);
     }
 
-    public MyAddressPage clickBySaveButton() {
-        saveButton.click();
+    public FormAddressPage inputMobilePhone(String mobilePhone) {
+        type(mobilePhoneField, mobilePhone);
+        return new FormAddressPage(driver);
+    }
+
+    public FormAddressPage inputAddressAlias(String alias) {
+        type(addressAlias, alias);
+        return new FormAddressPage(driver);
+    }
+
+    public MyAddressPage clickSaveButton() {
+       click( saveButton);
         return new MyAddressPage(driver);
-    }
-
-    public String getTitle() {
-        return title;
     }
 
 }
