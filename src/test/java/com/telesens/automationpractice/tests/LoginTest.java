@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest{
 
-    @Test (dataProvider = "excelLoginData")
+    @Test (dataProvider = "excelLoginData", enabled = false)
     public void LoginTest(String email, String pass, String errorMessage) {
         app.session().loginWithInvalidData(email, pass);
         app.session().checkErrorMessage(errorMessage);
