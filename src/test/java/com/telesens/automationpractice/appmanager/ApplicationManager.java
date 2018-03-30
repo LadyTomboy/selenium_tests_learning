@@ -31,7 +31,7 @@ public class ApplicationManager {
         this.properties=new Properties();
         try {
             String propertyFile = System.getProperty("configFile", "src/main/resources/test.properties");
-            properties.load(new FileReader(new File("src/main/resources/test.properties")));
+            properties.load(new FileReader(new File(propertyFile)));
         } catch (IOException e) {
             e.printStackTrace();
         }
